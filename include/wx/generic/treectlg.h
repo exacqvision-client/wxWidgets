@@ -290,7 +290,7 @@ protected:
     void DrawLine(const wxTreeItemId& item, bool below);
     void DrawDropEffect(wxGenericTreeItem *item);
 
-    void DoSelectItem(const wxTreeItemId& id,
+    virtual void DoSelectItem(const wxTreeItemId& id,
                       bool unselect_others = true,
                       bool extended_select = false);
 
