@@ -159,9 +159,6 @@ bool wxGLCanvas::DoCreate(wxWindow *parent,
                           long style,
                           const wxString& name)
 {
-    if ( !WX_IS_MACOS_AVAILABLE(10, 14) )
-        return wxWindow::Create(parent, id, pos, size, style, name);
-
     DontCreatePeer();
     
     if ( !wxWindow::Create(parent, id, pos, size, style, name) )
