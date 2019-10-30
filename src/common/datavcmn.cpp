@@ -1972,7 +1972,7 @@ wxSize wxDataViewDateRenderer::GetSize() const
 // wxDataViewCheckIconTextRenderer implementation
 // ----------------------------------------------------------------------------
 
-#ifndef __WXOSX__
+#ifdef wxHAS_GENERIC_DATAVIEWCTRL
 
 IMPLEMENT_VARIANT_OBJECT_EXPORTED(wxDataViewCheckIconText, WXDLLIMPEXP_ADV)
 
@@ -2164,7 +2164,7 @@ wxSize wxDataViewCheckIconTextRenderer::GetCheckSize() const
     return wxRendererNative::Get().GetCheckBoxSize(GetView());
 }
 
-#endif // !__WXOSX__
+#endif // wxHAS_GENERIC_DATAVIEWCTRL
 
 //-----------------------------------------------------------------------------
 // wxDataViewListStore
