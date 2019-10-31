@@ -216,6 +216,13 @@ bool wxCocoaLaunch(const char* const* argv, pid_t &pid)
         wxLogDebug(wxT("wxCocoaLaunch Can't open path: %s"), path.c_str());
         return false ;
     }
+
+    NSBundle *bundle = [NSBundle bundleWithURL:url];
+    if( bundle == nil )
+    {
+        wxLogDebug(wxT("wxCocoaLaunch Not a bundle!"));
+        return false;
+    }
     
     // Loop through command line arguments to the bundle,
     // turn them into CFURLs and then put them in cfaFiles
