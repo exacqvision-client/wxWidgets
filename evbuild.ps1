@@ -62,6 +62,7 @@ foreach ($platform in "x64", "x86")
     $slnPlatform = GetPlatform $platform
 
     pushd build\msw
+    ${env:_LINK_}="/DEBUG"
     msbuild /m wx_vc14.sln /p:Configuration="DLL Debug" /p:Platform=$slnPlatform /p:PlatformToolset=v140 /p:wxToolkitDllNameSuffix=_vc_xdv
     msbuild /m wx_vc14.sln /p:Configuration="DLL Release" /p:Platform=$slnPlatform /p:PlatformToolset=v140 /p:wxToolkitDllNameSuffix=_vc_xdv
 
@@ -70,6 +71,7 @@ foreach ($platform in "x64", "x86")
     msbuild /m wx_vc14.sln /p:Configuration="Debug" /p:Platform=$slnPlatform /p:PlatformToolset=v140 /p:wxToolkitDllNameSuffix=_vc_xdv
     msbuild /m wx_vc14.sln /p:Configuration="Release" /p:Platform=$slnPlatform /p:PlatformToolset=v140 /p:wxToolkitDllNameSuffix=_vc_xdv
     ${env:_CL_}=""
+    ${env:_LINK_}=""
     popd
 
     "Copying output..."
