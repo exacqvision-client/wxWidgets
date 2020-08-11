@@ -208,6 +208,13 @@ bool wxDisplay::ChangeMode(const wxVideoMode& mode)
 /* static */
 wxSize wxDisplayImpl::ComputePPI(int pxX, int pxY, int mmX, int mmY)
 {
+#ifdef __WXGTK__
+    // 16x9, 160x90, etc are special values not meant to be treated literally
+    // These are just placeholders representing the aspect ratio so ignore them
+    if (mmX <= 160 || mmY <= 100)
+        return wxSize(0, 0);
+#endif
+
     if ( !mmX || !mmY )
     {
         // Physical size is unknown, return a special value indicating that we
